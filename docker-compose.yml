@@ -1,0 +1,31 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - /tmp/mysql-data:/var/lib/mysql
+    command: mysqld --sql_mode=""
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: desafio
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: password
+    expose:
+      - "3306"
+  app:
+    depends_on:
+      - mysql
+    build: .
+    command: bash start.sh
+    ports:
+      - "3000:3000"
+    environment:
+      DB_USER: root
+      DB_NAME: desafio
+      DB_PASSWORD: password
+      DB_HOST: mysql
+    volumes:
+      - .:/desafio
+volumes:
+  mysql:
+  app:

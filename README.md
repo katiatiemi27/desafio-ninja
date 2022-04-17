@@ -12,4 +12,10 @@ Sua tarefa será de criar uma API REST que crie, edite, mostre e delete o agenda
 - Esperamos testes automatizados. 
 - A aplicação deverá subir com docker-compose
 - Crie um README.md descrevendo a sua solução e as issues caso houver
-- O desafio pode ser entregue abrindo um pull request ou fazendo um fork do repositório 
+- O desafio pode ser entregue abrindo um pull request ou fazendo um fork do repositório
+
+# O que foi implementado
+- API para criar reuniões
+- Utilizei a estrutura de projetos que eu tomei conheci e achei uma boa estrutura. Deixei as regras de negócios nos arquivos das services (como verificar se o horário é está dentro do horário comercial, não
+deixar criar/atualizar uma meeting que já está criada na mesma sala e mesma data).
+- Os controllers ficam mais simples e chamam os services e renderizam o resultado do processamento desse service.
